@@ -5,8 +5,12 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  
 </head>
 <body>
+  <div>
+    
+  </div>
   <script>
     var arr = ['asd','sdf','dfg','fgh']
     var newarr = []
@@ -28,6 +32,52 @@
       }
     }
     console.log(arrnum);
+  /**
+ * @param {string} s
+ * @return {number}
+ * 罗马文转数字
+ */
+var romanToInt = function(s) {
+    var arr = new Map()
+    arr.set('I',1)
+    arr.set('V',5)
+    arr.set('X',10)
+    arr.set('L',50)
+    arr.set('C',100)
+    arr.set('D',500)
+    arr.set('M',1000)
+     
+    let ans = 0;
+    const n = s.length;
+    for (let i = 0; i < n; ++i) {
+        const value = arr.get(s[i]);
+        console.log('---'+value);
+        if (i < n - 1 && value < arr.get(s[i + 1])) {
+            ans -= value;
+        } else {
+            ans += value;
+        }
+    }
+    console.log(typeof(ans));
+    console.log(ans);
+    return ans;
+};
+romanToInt('IV')
+
+//回文数
+var huiwenshu = function (x) {
+  if (x > 0 && Array.from(String(x)).reverse().join('') === String(x)) {
+    document.write('shi')
+    return true
+  }else if (x === 0) {
+    document.write('shi')
+    return true
+  }else{
+    document.write('bushi')
+    return false
+  }
+}
+huiwenshu(201)
   </script>
 </body>
 </html>
